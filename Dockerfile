@@ -13,8 +13,8 @@ COPY static/ /app/static/
 # Compile o código Go
 RUN go build main.go
 
-# Exponha a porta em que a aplicação Go está escutando (8080 neste caso)
-EXPOSE 8080
+# Exponha a porta em que a aplicação Go está escutando (5000 neste caso)
+EXPOSE 5000
 
 # Comando para executar a aplicação quando o contêiner for iniciado
 CMD ["./main"]
