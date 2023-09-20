@@ -1,13 +1,20 @@
-FROM golang:1.19
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
-RUN echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-RUN apt-get update
-RUN apt-get -y install google-chrome-stable
-RUN apt-get -y install libjpeg-dev
-RUN chrome &
-RUN mkdir /app
-ADD . /app
+# Use a imagem oficial do Golang como imagem base
+FROM golang:latest
+
+# Defina o diretório de trabalho dentro do contêiner
 WORKDIR /app
-RUN go build -o main .
-EXPOSE 9003
-CMD ["/app/main"]
+
+# Copie os arquivos Go necessários para o contêiner
+COPY main.go /app/
+
+# Copie a pasta "static" com seus arquivos HTML e CSS para o contêiner
+COPY static/ /app/static/
+
+# Compile o código Go
+RUN go build main.go
+
+# Exponha a porta em que a aplicação Go está escutando (8080 neste caso)
+EXPOSE 8080
+
+# Comando para executar a aplicação quando o contêiner for iniciado
+CMD ["./main"]

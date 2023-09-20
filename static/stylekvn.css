@@ -1,0 +1,22 @@
+body{
+    background-image: url(/static/imagens/KEVIN.png);
+    background-repeat: repeat;
+    background-size: 35px;
+    margin: 0px;
+}
+
+.head{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 5px 5px black;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.center{
+    color: black;
+    font-family: cursive;
+    font-size: 35px;
+    text-shadow: 5px 5px 5px yellow;
+    text-align: center;
+}

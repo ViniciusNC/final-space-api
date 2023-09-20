@@ -24,9 +24,3 @@ __debug_bin
 go.work
 
 .env
-
-manga-reader
-
-mangas/
-
-ngrok-url.txt
